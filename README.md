@@ -1,45 +1,41 @@
-# Pi-modem
+# Pi Modem MCP Extension
 
-> _One-line description of what Pi-modem does._
+A project-local [Pi](https://pi.dev) extension that exposes Modem's remote MCP server as Pi tools.
 
-## Overview
+## What it adds
 
-Pi-modem is a private project. Replace this section with a short paragraph describing
-the project's purpose, the problem it solves, and who it's for.
+- `invoke_modem_agent` — asks Modem's `invoke_modem_agent` MCP tool a self-contained natural-language question.
+- `list_modem_mcp_tools` — lists Modem MCP tools and checks connectivity.
+- `/modem-auth` — starts/validates browser OAuth authorization for Modem.
+- `/modem-reset-auth` — clears saved OAuth credentials.
 
-## Getting Started
-
-### Prerequisites
-
-- List required tooling here (e.g. Node.js / Bun, Python, etc.)
-
-### Installation
+## Setup
 
 ```bash
-git clone https://github.com/tridha643/Pi-modem.git
-cd Pi-modem
-# install dependencies
+cd .pi/extensions/modem-mcp
+npm install
+cd ../../..
+pi
 ```
 
-### Usage
+If Pi is already running, use `/reload` after installing dependencies.
 
-```bash
-# example command
+The extension is auto-discovered from:
+
+```text
+.pi/extensions/modem-mcp/index.ts
 ```
 
-## Project Structure
+OAuth credentials are stored outside the repo at:
 
-```
-Pi-modem/
-├── README.md
-├── .gitignore
-└── LICENSE
+```text
+~/.pi/agent/modem-mcp-oauth.json
 ```
 
-## Development
+## Use
 
-Describe how to run the project locally, run tests, and contribute.
+Run `/modem-auth` once, complete the browser consent flow, then ask Pi questions that require Modem. Pi can call `invoke_modem_agent` when it needs Modem customer-feedback data or connected-tool context.
 
-## License
+Each Modem MCP call is self-contained, so prompts sent to Modem should include all needed context.
 
-This project is private. See [LICENSE](LICENSE) for details.
+See `.pi/extensions/modem-mcp/README.md` for configuration options.
