@@ -1,13 +1,38 @@
 {
   "name": "pi-modem-mcp-extension",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Pi extension that exposes the Modem MCP server as Pi tools.",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "mcp",
+    "modem"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/tridha643/Pi-modem#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tridha643/Pi-modem.git",
+    "directory": ".pi/extensions/modem-mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/tridha643/Pi-modem/issues"
+  },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
   },
   "devDependencies": {
     "@earendil-works/pi-coding-agent": "latest",

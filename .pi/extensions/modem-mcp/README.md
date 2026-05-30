@@ -1,6 +1,6 @@
 # Pi Modem MCP Extension
 
-This project-local Pi extension exposes Modem's remote MCP server as Pi tools.
+A Pi package/extension that exposes Modem's remote MCP server as Pi tools.
 
 ## Tools
 
@@ -14,14 +14,13 @@ This project-local Pi extension exposes Modem's remote MCP server as Pi tools.
 
 ## Setup
 
+Install from npm:
+
 ```bash
-cd .pi/extensions/modem-mcp
-npm install
-cd ../../..
-pi
+pi install npm:pi-modem-mcp-extension
 ```
 
-Pi auto-discovers `.pi/extensions/modem-mcp/index.ts`. Run `/reload` if Pi is already open.
+For local development, Pi also auto-discovers `.pi/extensions/modem-mcp/index.ts` in this repo. Run `/reload` if Pi is already open.
 
 On the first `/modem-auth` or tool call, the extension opens a browser to authorize `agent:invoke` for the selected Modem organization. OAuth tokens are stored outside the repo at:
 
